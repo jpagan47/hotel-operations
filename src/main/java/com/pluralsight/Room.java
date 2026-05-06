@@ -49,4 +49,16 @@ public class Room {
         return false;
     }
 
+    public void checkIn(){
+        this.occupied = true;
+        this.dirty = true;
+    }
+    public void checkout(){
+        this.occupied = false;
+        this.dirty = true;
+    }
+    public void cleanroom(){
+        this.occupied = false;
+        this.dirty = false;
+    }
 }
