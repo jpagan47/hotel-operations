@@ -33,7 +33,44 @@ class EmployeeTest {
     }
 
     @Test
+    //Testing for input greater than 24 hour military time
     void TestPunchIn_shouldRejectIfGreaterThan24() {
+        //Arrange
+        Employee employee = new Employee();
+
+        //Act
+        int actualValue = employee.punchIn(26);
+
+        //Assert
+        Assertions.assertEquals(0,employee.getTimeIn());
+    }
+
+    @Test
+    void TestPunchOut_shouldSetValidTime() {
+        //Arrange
+        Employee employee = new Employee();
+
+        //Act
+        int actualValue = employee.punchIn(2);
+
+        //Assert
+        Assertions.assertEquals(actualValue,employee.getTimeIn());
+    }
+
+    @Test
+    void TestPunchOut_shouldRejectNegativeNumber() {
+        //Arrange
+        Employee employee = new Employee();
+
+        //Act
+        int actualValue = employee.punchIn(26);
+
+        //Assert
+        Assertions.assertEquals(0,employee.getTimeIn());
+    }
+
+    @Test
+    void TestPunchOut_shouldRejectIfGreaterThan24() {
         //Arrange
         Employee employee = new Employee();
 
