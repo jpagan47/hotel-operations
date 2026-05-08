@@ -9,6 +9,22 @@ public class Employee {
     private double totalPay;
     private int timeIn;
     private int timeOut;
+    public int getTimeIn() {
+        return timeIn;
+    }
+
+    public void setTimeIn(int timeIn) {
+        this.timeIn = timeIn;
+    }
+
+    public int getTimeOut() {
+        return timeOut;
+    }
+
+    public void setTimeOut(int timeOut) {
+        this.timeOut = timeOut;
+    }
+
     public Employee(int employeeId, String name, String department, double payRate, double hoursWorked) {
         this.employeeId = employeeId;
         this.name = name;
@@ -16,12 +32,24 @@ public class Employee {
         this.payRate = payRate;
         this.hoursWorked = hoursWorked;
     }
+    public Employee(){
 
-    public void punchIn(int timeIn){
-        this.timeIn = timeIn;
     }
-    public void punchOut(int timeOut){
-        ;this.timeOut= timeOut;
+
+    public int punchIn(int timeIn){
+        if (timeIn < 0 || timeIn >24){
+            System.out.println("Invalid Time Input");
+            return 0;
+        }
+        return this.timeIn = timeIn;
+    }
+    public int punchOut(int timeOut){
+        if(timeOut < 0 || timeOut > 24){
+            System.out.println("Invalid Time Input");
+            return 0;
+        }
+        return this.timeOut= timeOut;
+
     }
     public double getTotalPay(){
         totalPay = hoursWorked * payRate;
